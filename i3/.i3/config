@@ -243,9 +243,10 @@ exec_always --no-startup-id feh --bg-scale "$HOME/Pictures/wallpaper.png"
 exec --no-startup-id compton -f
 exec spotify
 exec skype
-exec --no-startup-id guvcview -p $HOME/webcam.gpfl -g none -z
-exec /usr/libexec/gnome-settings-daemon
+#exec --no-startup-id guvcview -p $HOME/webcam.gpfl -g none -z
+#exec /usr/libexec/gnome-settings-daemon
 exec_always xautolock -detectsleep -corner -time 5 -notify 30 -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'" -locker "$HOME/bin/lock"
+exec --no-startup-id $HOME/lightsOn.sh 240
 
 hide_edge_borders both
 
