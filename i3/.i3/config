@@ -134,7 +134,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit && exec rm /tmp/monitorstate'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -160,12 +160,13 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+Alt+Left resize shrink width 10 px or 10 ppt
+bindsym $mod+Control+Left resize shrink width 10 px or 10 ppt
+bindsym $mod+Control+Right resize grow width 10 px or 10 ppt
 bindsym $mod+r mode "resize"
 
-set $bg-color 	         #2F1E2E
+set $bg-color 	         #2C3E50
 set $inactive-bg-color   #2f343f
-set $text-color          #EF6155
+set $text-color          #2ECC71
 set $inactive-text-color #A39E98
 set $urgent-bg-color     #E53935
 
@@ -216,7 +217,12 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86MonBrightnessDown exec --no-startup-id sudo $HOME/bin/bright_down.sh
 bindsym XF86MonBrightnessUp exec --no-startup-id sudo $HOME/bin/bright_up.sh
 
-bindsym Print exec scrot -e 'imgur-screenshot $f && mv $f ~/Pictures/Screenshots/'
+bindsym Print exec maim ~/Pictures/Screenshots/$(date +%F-%T).png
+bindsym Control+Print exec maim -s -c 1,0,0,0.6 -p 10 ~/Pictures/Screenshots/$(date +%F-%T).png
+bindsym $mod+F12 exec maim /tmp/screenshot.png && imgur-screenshot /tmp/screenshot.png
+bindsym $mod+F11 exec "maim -s -c 1,0,0,0.6 /tmp/screenshot.png && imgur-screenshot /tmp/screenshot.png"
+
+bindsym $mod+P exec $HOME/bin/monitor
 
 # i3 config
 gaps outer 15
@@ -232,21 +238,26 @@ assign [class="Skype"] $workspace9
 #Spotify is an unique snowflake
 for_window [class="Spotify"] move to workspace $workspace10
 
+for_window [class="TeamViewer.exe"] floating enable
+for_window [title="TeamViewer Panel (minimized)"] floating enable, move absolute position 900 px 0 px
+for_window [title="TeamViewer Panel"] floating enable, move absolute position 900 px 0 px
+for_window [title="TeamViewer"] floating enable, move absolute position 900 px 0 px
+
 workspace $workspace1 output HDMI-0
 workspace $workspace2 output LVDS
 workspace $workspace9 output LVDS
 
 
 # Fix the two pixel overlay between the screens
-exec --no-startup-id xrandr --output LVDS --auto --pos 0x450 --output HDMI-0 --auto --pos 1368x0 --primary
-exec_always --no-startup-id feh --bg-scale "$HOME/Pictures/wallpaper.png"
+exec $HOME/bin/monitor
 exec --no-startup-id compton -f
 exec spotify
 exec skype
 #exec --no-startup-id guvcview -p $HOME/webcam.gpfl -g none -z
 #exec /usr/libexec/gnome-settings-daemon
-exec_always xautolock -detectsleep -corner -time 5 -notify 30 -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'" -locker "$HOME/bin/lock"
-exec --no-startup-id $HOME/lightsOn.sh 240
+exec_always xautolock -detectsleep -time 5 -notify 30 -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'" -locker "$HOME/bin/lock"
+exec --no-startup-id $HOME/bin/lightsOn.sh 240
+exec --no-startup-id dunst
 
 hide_edge_borders both
 
