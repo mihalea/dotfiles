@@ -13,5 +13,13 @@ function status {
 }
 
 if [ "$(pidof spotify)" ]; then
-	echo "$(artist) - $(title)"
+	artist=$(artist)
+	title=$(title)
+	if [ -z $artist ] && [ ! -z $title ]; then
+		echo "ADS? Why am I paying for premium?"
+	elif [ -z $artist ] && [ -z $title ]; then
+		echo "Stopped"
+	else
+		echo "$artist - $title"
+	fi
 fi

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+wifi=$(iwgetid -r)
+
+
+if [[ ! -z $wifi ]]; then
+	if [ pgrep "openvpn" > /dev/null ] || [ pgrep "pptpclient" > /dev/null ]; then
+		wifi=" $wifi"
+	else
+		wifi=" $wifi"
+	fi
+
+	echo $wifi
+else
+	echo "Disconnected"
+fi
