@@ -210,9 +210,9 @@ bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
 # mute volume
 bindsym XF86AudioMute exec amixer -q set Master mute
 # pause / play / next / previous
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPrev exec mpc previous
 
 bindsym XF86MonBrightnessDown exec --no-startup-id sudo $HOME/bin/bright_down.sh
 bindsym XF86MonBrightnessUp exec --no-startup-id sudo $HOME/bin/bright_up.sh
