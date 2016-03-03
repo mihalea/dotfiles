@@ -221,7 +221,7 @@ bindsym Print exec maim ~/Pictures/Screenshots/$(date +%F-%T).png
 bindsym Control+Print exec maim -s -c 1,0,0,0.6 -p 10 ~/Pictures/Screenshots/$(date +%F-%T).png
 bindsym $mod+F12 exec maim /tmp/screenshot.png && imgur-screenshot /tmp/screenshot.png
 bindsym $mod+F11 exec "maim -s -c 1,0,0,0.6 /tmp/screenshot.png && imgur-screenshot /tmp/screenshot.png"
-
+bindsym $mod+Shift+P exec --no-startup-id $HOME/bin/startplayer $workspace10
 bindsym $mod+P exec $HOME/bin/monitor
 
 # i3 config
@@ -251,7 +251,7 @@ workspace $workspace9 output LVDS
 # Fix the two pixel overlay between the screens
 exec $HOME/bin/monitor
 exec --no-startup-id compton -f
-exec spotify
+exec --no-startup-id mopidy
 exec skype
 #exec --no-startup-id guvcview -p $HOME/webcam.gpfl -g none -z
 #exec /usr/libexec/gnome-settings-daemon
