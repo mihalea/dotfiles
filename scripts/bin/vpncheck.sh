@@ -1,4 +1,4 @@
-if [ pgrep "openvpn" > /dev/null ] || [ pgrep "pptpclient" > /dev/null ]; then
+if pgrep "openvpn" || pgrep "pptpclient"; then
 	echo " "
 fi
 	echo " "
