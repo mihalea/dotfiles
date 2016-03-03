@@ -12,10 +12,6 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
 
 # Path to your oh-my-zsh installation.
