@@ -4,7 +4,7 @@ wifi=$(iwgetid -r)
 
 
 if [[ ! -z $wifi ]]; then
-	if pgrep "openvpn" &> /dev/null || pgrep "pptpclient" &> /dev/null; then
+	if pgrep "openvpn" &> /dev/null || pgrep "pptp" &> /dev/null; then
 		wifi=" $wifi"
 	else
 		wifi=" $wifi"

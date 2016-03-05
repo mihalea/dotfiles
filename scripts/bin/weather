@@ -37,6 +37,4 @@ elif [[ "${WEATHER_MAIN}" = *Fog* ]] || [[ "${WEATHER_MAIN}" = *Mist* ]]; then
   echo "${ICON_FOG}${WEATHER_TEMP}${SYMBOL_CELSIUS}"
 else
   echo " "
-  echo " "
-  echo " "
 fi

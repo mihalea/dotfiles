@@ -104,7 +104,7 @@ app_is_running () {
 
     if $firefox_flash_detection &&
 	[[ $active_win_title = *unknown* || $active_win_title = *plugin-container* ]] &&
-	pgrep plugin-containe &>/dev/null; then
+	pgrep plugin-container &>/dev/null; then
 	$verbose && echo "	active win seems to be Firefox Flash"
 	return 0
     fi

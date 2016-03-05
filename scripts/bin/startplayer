@@ -1,4 +1,6 @@
 #!/bin/bash
 
-i3-msg "workspace \"$1\"; append_layout $HOME/.i3/workspace10.json"
-urxvt -name ncmpcpp -e ncmpcpp | urxvt -name vis -e vis | urxvt -name htop -e htop
+if [ -z $(pgrep ncmpcpp) ]; then
+	i3-msg "workspace \"$1\"; append_layout $HOME/.i3/workspace10.json"
+	urxvt -name ncmpcpp -e ncmpcpp | urxvt -name vis -e vis | urxvt -name htop -e htop
+fi

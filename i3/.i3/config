@@ -36,7 +36,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 50 -padding 100 -opacity "85" -hlfg "#C1BDB4" -hlbg "#6E6A81" -bw 0 -bc "#434460" -bg "#41323F" -fg "$inactive-text-color"
+bindsym $mod+d exec  i3-dmenu-desktop --dmenu="rofi -dmenu -show run -lines 3 -eh 2 -width 50 -padding 100 -opacity 85 -hlfg #C1BDB4 -hlbg #6E6A81 -bw 0 -bc #434460 -bg #41323F -fg $inactive-text-color -p run: -i"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -171,7 +171,7 @@ set $inactive-text-color #A39E98
 set $urgent-bg-color     #E53935
 
 # class                 border  backgr. text    indicator
-#client.focused          $text-color $text-color #ffffff #2e9ef4
+#client.focused          $inactive-bg-color #959ea7 #ffffff #2e9ef4
 #client.focused_inactive #41323F $bg-color $inactive-text-color #2e9ef4
 #client.unfocused        #41323F $bg-color $inactive-text-color #2e9ef4
 #client.urgent           #41323F $text-color #ffffff #2e9ef4
@@ -255,9 +255,8 @@ exec --no-startup-id mopidy
 exec skype
 #exec --no-startup-id guvcview -p $HOME/webcam.gpfl -g none -z
 #exec /usr/libexec/gnome-settings-daemon
-exec_always xautolock -detectsleep -time 5 -notify 30 -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'" -locker "$HOME/bin/lock"
-exec --no-startup-id $HOME/bin/lightsOn.sh 240
+exec --no-startup-id xautolock -detectsleep -time 15 -notify 30 -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'" -locker "$HOME/bin/lock"
+exec --no-startup-id $HOME/bin/lightson+.sh -d 240
 exec --no-startup-id dunst
 
 hide_edge_borders both
-
