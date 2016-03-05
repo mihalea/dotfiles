@@ -1,5 +1,9 @@
 #!/bin/zsh
 
+function sshen {
+	ssh-add "$HOME/.ssh/$1"
+}
+
 alias ls='ls --color=auto'
 alias l=ls
 alias ll='ls -l'

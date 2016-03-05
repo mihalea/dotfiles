@@ -65,7 +65,7 @@ ZSH_CUSTOM=/home/mircea/.oh-my-zsh/custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(sudo wd aliases git ssh-agent)
+plugins=(sudo wd git ssh-agent aliases clipboard)
 
 # User configuration
 
@@ -107,3 +107,4 @@ source $ZSH/oh-my-zsh.sh
 
 export VISUAL="vim"
 export EDITOR="vim"
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
