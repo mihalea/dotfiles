@@ -1,7 +1,12 @@
 #!/bin/zsh
 
 function sshen {
-	ssh-add "$HOME/.ssh/$1"
+	if [ ! -z $1 ];  then
+		file="$HOME/.ssh/$1"
+		if [ -s $file ]; then
+			ssh-add $file
+		fi
+	fi	
 }
 
 alias ls='ls --color=auto'
