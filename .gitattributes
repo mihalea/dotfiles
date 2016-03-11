@@ -1,1 +1,1 @@
-ncmpcpp/.config/mopify/config filter=remove-pass
+ncmpcpp/.config/mopidy/mopidy.conf filter=remove-pass
