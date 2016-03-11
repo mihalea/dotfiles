@@ -225,8 +225,8 @@ bindsym $mod+Shift+P exec --no-startup-id $HOME/bin/startplayer $workspace10
 bindsym $mod+P exec $HOME/bin/monitor
 
 # i3 config
-gaps outer 15
-gaps inner 10
+#gaps outer 15
+#gaps inner 10
 #Neede for i3-gaps to disable titlebars
 for_window [class="^.*"] border pixel 0
 
@@ -250,7 +250,7 @@ workspace $workspace9 output LVDS
 
 # Fix the two pixel overlay between the screens
 exec $HOME/bin/monitor
-exec --no-startup-id compton -f
+exec --no-startup-id xcompmgr
 exec --no-startup-id mopidy
 exec skype
 #exec --no-startup-id guvcview -p $HOME/webcam.gpfl -g none -z

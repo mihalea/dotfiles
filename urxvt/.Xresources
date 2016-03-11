@@ -1,11 +1,13 @@
-URxvt.borderColor:      #2C3E50
+URxvt.borderColor:      [90]#2C3E50
 URxvt.internalBorder:   5
 URxvt.scrollBar: false
 
 ! Base16 Flat
 ! Scheme: Chris Kempson (http://chriskempson.com)
+urxvt.depth: 32
 
-URxvt*background:                     #2C3E50
+! URxvt*background:                     [95]#2C3E50
+*.background: [90]#2C3E50
 URxvt*foreground:                     #e0e0e0
 URxvt*cursorColor:                    #e0e0e0
 
@@ -36,3 +38,8 @@ URxvt*color18:                        #34495E
 URxvt*color19:                        #7F8C8D
 URxvt*color20:                        #BDC3C7
 URxvt*color21:                        #f5f5f5
+
+xcursor.theme: Breeze-Obsidian
+Xcursor.size: 24
+
+URxvt.iso14755: false
