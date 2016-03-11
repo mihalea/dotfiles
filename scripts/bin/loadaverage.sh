@@ -24,7 +24,6 @@ echo "  $load"
 awk -v cpus=$cpus -v cpuload=$load '
     BEGIN {
         if (cpus <= cpuload) {
-            print "#FF0000";
             exit 33;
         }
     }
