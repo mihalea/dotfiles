@@ -233,6 +233,7 @@ for_window [class="^.*"] border pixel 0
 assign [class="Firefox"] $workspace1
 assign [class="Spotify"] $workspace10
 assign [class="Skype"] $workspace9
+assign [class="Thunderbird"] $workspace8
 #assign [class="XTerm"] $workspace2
 
 #Spotify is an unique snowflake
@@ -249,14 +250,15 @@ workspace $workspace9 output LVDS
 
 
 # Fix the two pixel overlay between the screens
-exec $HOME/bin/monitor
 exec --no-startup-id xcompmgr
 exec --no-startup-id mopidy
 exec skype
 #exec --no-startup-id guvcview -p $HOME/webcam.gpfl -g none -z
 #exec /usr/libexec/gnome-settings-daemon
 exec --no-startup-id xautolock -detectsleep -time 15 -notify 30 -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'" -locker "$HOME/bin/lock"
+exec $HOME/bin/monitor
 exec --no-startup-id $HOME/bin/lightson+.sh -d 240
 exec --no-startup-id dunst
+exec thunderbird
 
 hide_edge_borders both

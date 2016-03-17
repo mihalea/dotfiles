@@ -7,6 +7,8 @@ if [ ! -z $1 ]; then
 else
 	if [ -s $file ]; then
 		read state < $file
+	else
+		state="2";
 	fi
 fi
 

@@ -1,4 +1,4 @@
-URxvt.borderColor:      [90]#2C3E50
+URxvt.borderColor:      [80]#2C3E50
 URxvt.internalBorder:   5
 URxvt.scrollBar: false
 
@@ -7,7 +7,7 @@ URxvt.scrollBar: false
 urxvt.depth: 32
 
 ! URxvt*background:                     [95]#2C3E50
-*.background: [90]#2C3E50
+URxvt.background:                     [80]#2C3E50
 URxvt*foreground:                     #e0e0e0
 URxvt*cursorColor:                    #e0e0e0
 
