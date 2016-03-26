@@ -13,10 +13,10 @@ else
 fi
 
 if [ $state == "1" ]; then
-	xrandr --output HDMI-0 --off
+	xrandr --output HDMI-1 --off
 	echo '2' > $file
 elif [ $state == "2" ] || [ -z $state ]; then
-	xrandr --output LVDS --auto --pos 0x650 --output HDMI-0 --auto --pos 1368x0 --primary
+	xrandr --output LVDS-1 --auto --pos 0x650 --output HDMI-0 --auto --pos 1368x0 --primary
 	echo '1' > $file
 fi
 
