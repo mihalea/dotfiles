@@ -6,8 +6,8 @@ function temp {
 
     IFS=$'\n'
     DATA=$(echo "${OUTPUT}" | egrep -A4 "${CORE}")
-    CURRENT=$(echo "${DATA}" | grep -Po "(?<=_input: )([0-9]+)")
-    HIGH=$(echo "${DATA}" | grep -Po "(?<=_max: )([0-9]+)")
+    CURRENT=$(echo "${DATA}" | grep -Po "(?<=_input: )([0-9]+)" | head -n1)
+    HIGH=$(echo "${DATA}" | grep -Po "(?<=_max: )([0-9]+)" | head -n1)
     #CRIT=$(echo "${DATA}" | grep -Po "(?<=_crit: )([0-9]+)")
 
     echo "${CURRENT}"
@@ -16,4 +16,4 @@ function temp {
     exit 0
 }
 
-echo "  $(temp 'Core 0') $(temp 'Core 1')"
+echo "  $(temp temp1)"
