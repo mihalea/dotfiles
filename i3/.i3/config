@@ -248,21 +248,12 @@ for_window [title="TeamViewer Panel (minimized)"] floating enable, move absolute
 for_window [title="TeamViewer Panel"] floating enable, move absolute position 900 px 0 px
 for_window [title="TeamViewer"] floating enable, move absolute position 900 px 0 px
 
-workspace $workspace1 output HDMI-0
-workspace $workspace2 output LVDS
-workspace $workspace9 output LVDS
-
 
 # Fix the two pixel overlay between the screens
-exec --no-startup-id xcompmgr
-exec --no-startup-id mopidy
-exec skype
+exec --no-startup-id compton
 #exec --no-startup-id guvcview -p $HOME/webcam.gpfl -g none -z
 #exec /usr/libexec/gnome-settings-daemon
 exec --no-startup-id xautolock -detectsleep -time 15 -notify 30 -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'" -locker "$HOME/bin/lock"
-exec $HOME/bin/monitor.sh
+exec $HOME/bin/setwallpaper
 exec --no-startup-id $HOME/bin/lightson+.sh -d 240
 exec --no-startup-id dunst
-exec thunderbird
-
-#hide_edge_borders both
