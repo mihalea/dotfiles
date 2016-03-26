@@ -129,6 +129,9 @@ bindsym $mod+Shift+0 move container to workspace $workspace10; workspace $worksp
 
 bindsym $mod+Control+Down move workspace to output left
 
+bindsym $mod+Control+Left workspace prev_on_output
+bindsym $mod+Control+Right workspace next_on_output
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -160,8 +163,8 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+Control+Left resize shrink width 10 px or 10 ppt
-bindsym $mod+Control+Right resize grow width 10 px or 10 ppt
+bindsym $mod+minus resize shrink width 10 px or 10 ppt
+bindsym $mod+plus resize grow width 10 px or 10 ppt
 bindsym $mod+r mode "resize"
 
 set $bg-color 	         #2C3E50
@@ -171,11 +174,11 @@ set $inactive-text-color #A39E98
 set $urgent-bg-color     #E53935
 
 # class                 border  backgr. text    indicator
-#client.focused          $inactive-bg-color #959ea7 #ffffff #2e9ef4
-#client.focused_inactive #41323F $bg-color $inactive-text-color #2e9ef4
-#client.unfocused        #41323F $bg-color $inactive-text-color #2e9ef4
-#client.urgent           #41323F $text-color #ffffff #2e9ef4
-#client.placeholder      #41323F $bg-color $text-color #2e9ef4
+client.focused          $inactive-bg-color "#959ea7" "#ffffff" #959ea7
+#client.focused_inactive "#41323F" "$bg-color" "$inactive-text-color" #41323F
+#client.unfocused        #41323F $bg-color $inactive-text-color #41323F
+#client.urgent           #41323F $text-color #ffffff #41323F
+#client.placeholder      #41323F $bg-color $text-color #41323F
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -226,10 +229,10 @@ bindsym $mod+Shift+P exec --no-startup-id $HOME/bin/startplayer $workspace10
 bindsym $mod+P exec $HOME/bin/monitor
 
 # i3 config
-#gaps outer 15
-#gaps inner 10
-#Neede for i3-gaps to disable titlebars
-for_window [class="^.*"] border pixel 0
+gaps outer 5
+gaps inner 10
+#Needed for i3-gaps to disable titlebars
+for_window [class="^.*"] border pixel 2
 
 assign [class="Firefox"] $workspace1
 assign [class="Spotify"] $workspace10
@@ -257,9 +260,9 @@ exec skype
 #exec --no-startup-id guvcview -p $HOME/webcam.gpfl -g none -z
 #exec /usr/libexec/gnome-settings-daemon
 exec --no-startup-id xautolock -detectsleep -time 15 -notify 30 -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'" -locker "$HOME/bin/lock"
-exec $HOME/bin/monitor
+exec $HOME/bin/monitor.sh
 exec --no-startup-id $HOME/bin/lightson+.sh -d 240
 exec --no-startup-id dunst
 exec thunderbird
 
-hide_edge_borders both
+#hide_edge_borders both
