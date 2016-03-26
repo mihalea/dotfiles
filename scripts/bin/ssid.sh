@@ -5,12 +5,11 @@ wifi=$(iwgetid -r)
 
 if [[ ! -z $wifi ]]; then
 	if pgrep "openvpn" &> /dev/null || pgrep "pptp" &> /dev/null; then
-		wifi=" $wifi"
+		echo " $wifi"
 	else
-		wifi=" $wifi"
+		echo " $wifi"
 	fi
 
-	echo $wifi
 else
 	echo "Disconnected"
 fi
