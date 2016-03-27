@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ ! -z $1 ];  then
+	file="$HOME/.ssh/$1"
+	if [ -s $file ]; then
+		ssh-add $file
+	else
+		echo "File is empty!"
+	fi
+else
+	echo "No arguments provided"
+ fi
