@@ -9,12 +9,12 @@ Some reliable sources of information that have helped me through the conquest of
   * dunst
 * i3
   * i3-gaps
-  * i3blocks-gaps
+  * i3blocks
   * i3lock-color
   * rofi
   * mpc
   * maim
-  * xcompmgr
+  * compton
 * ncmpcpp
   * ncmpcpp
   * mopidy
@@ -28,6 +28,13 @@ Some reliable sources of information that have helped me through the conquest of
   * feh
   * lm_sensors
   * wget
+  * xorg-xprop
+  * wget
+  * python
+  * imgur-screenshot
+  * slop
+  * xclip
+  * libnotify
 * ssh
   * openssh
 * urxvt
