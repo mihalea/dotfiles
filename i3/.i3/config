@@ -129,8 +129,13 @@ bindsym $mod+Shift+0 move container to workspace $workspace10; workspace $worksp
 
 bindsym $mod+Control+Down move workspace to output left
 
+<<<<<<< HEAD
 bindsym $mod+Control+Left workspace prev_on_output
 bindsym $mod+Control+Right workspace next_on_output
+=======
+bindsym $mod+Tab workspace next_on_output
+bindsym $mod+Shift+Tab workspace prev_on_output
+>>>>>>> b5b1560... Reversed the workspace cycling direction
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
