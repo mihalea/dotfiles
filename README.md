@@ -28,6 +28,15 @@ Some reliable sources of information that have helped me through the conquest of
   * feh
   * lm_sensors
   * wget
+<<<<<<< HEAD
+=======
+  * xorg-xprop
+  * python
+  * imgur-screenshot
+  * slop
+  * xclip
+  * libnotify
+>>>>>>> 559cc4d... Removed wget as it appeared twice
 * ssh
   * openssh
 * urxvt
