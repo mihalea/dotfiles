@@ -29,7 +29,6 @@ Some reliable sources of information that have helped me through the conquest of
   * lm_sensors
   * wget
   * xorg-xprop
-  * wget
   * python
   * imgur-screenshot
   * slop
