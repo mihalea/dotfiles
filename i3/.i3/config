@@ -270,4 +270,8 @@ exec --no-startup-id xautolock -detectsleep -time 15 -notify 30 -notifier "notif
 exec --no-startup-id $HOME/bin/lightson+.sh -d 240
 exec --no-startup-id dunst
 
-#hide_edge_borders both
+exec --no-startup-id $HOME/bin/monitor.sh
+exec --no-startup-id thunderbird
+exec --no-startup-id mopidy
+
+exec skype
