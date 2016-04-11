@@ -2,4 +2,4 @@
 
 youtube-dl -x --audio-format "mp3" -o '%(title)s.%(ext)s' -a $1
 mp3gain -c -r "*.mp3"
-clearnr .
+cleartr .
