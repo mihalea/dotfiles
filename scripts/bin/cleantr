@@ -1,0 +1,36 @@
+#!/bin/bash
+
+## SCRIPT USED TO REMOVE UNNECESSARY FILENAME ANNOTATIONS WHEN DOWNLOADING FROM YOUTUBE
+
+function rename {
+	blacklist="lyrics official video censored uncensored"
+
+	name=$(echo $1 | 
+		# Remove annotations in parenthesis
+		sed -r "s/(\(|\[)(.+?)(\)|\])//g" | 
+
+		# Transform every letter to lowercase
+		sed -r "s/([a-zA-Z])/\L\1/g")
+	 
+	for word in $blacklist; do
+		name=$(echo $name | sed "s/$word//g")
+	done
+
+	name=$(echo $name | 
+		# Remove trailing whitespaces
+		sed -r "s/([a-z]+)\W+\.mp3$/\1.mp3/g" |
+
+		# Transofrm every first letter to uppercase 
+		sed -r "s/(^|\s)([a-z])/\1\U\2/g")
+
+	echo $name
+}
+
+# Fetch all mp3 in the given directory
+ls $1 | grep ".mp3$" | while read file; do
+	new=$(rename "$file")
+	if [ "$file" != "$new" ]; then
+		echo "$file ==> $new"
+		mv "$file" "$new"
+	fi
+done
