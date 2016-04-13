@@ -3,7 +3,7 @@
 ## SCRIPT USED TO REMOVE UNNECESSARY FILENAME ANNOTATIONS WHEN DOWNLOADING FROM YOUTUBE
 
 function rename {
-	blacklist="lyrics official video censored uncensored"
+	blacklist="lyrics hd official video censored uncensored"
 
 	name=$(echo $1 | 
 		# Remove annotations in parenthesis
