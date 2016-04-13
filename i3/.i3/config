@@ -43,10 +43,10 @@ bindsym $mod+d exec  i3-dmenu-desktop --dmenu="rofi -dmenu -show run -lines 3 -e
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+#bindsym $mod+j focus left
+#bindsym $mod+k focus down
+#bindsym $mod+l focus up
+#bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -227,6 +227,7 @@ bindsym $mod+F12 exec maim /tmp/screenshot.png && imgur-screenshot /tmp/screensh
 bindsym $mod+F11 exec "maim -s -c 1,0,0,0.6 /tmp/screenshot.png && imgur-screenshot /tmp/screenshot.png"
 bindsym $mod+Shift+P exec --no-startup-id $HOME/bin/startplayer $workspace10
 bindsym $mod+P exec $HOME/bin/monitor
+bindsym $mod+L exec slimlock
 
 # i3 config
 gaps outer 5
