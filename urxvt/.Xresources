@@ -31,7 +31,6 @@ URxvt*color12:                        #3498DB
 URxvt*color13:                        #9B59B6
 URxvt*color14:                        #1ABC9C
 URxvt*color15:                        #ECF0F1
-
 URxvt*color16:                        #E67E22
 URxvt*color17:                        #be643c
 URxvt*color18:                        #34495E
@@ -43,3 +42,10 @@ xcursor.theme: Breeze-Obsidian
 Xcursor.size: 24
 
 URxvt.iso14755: false
+
+rofi.padding:		250
+rofi.separator-style: 	none
+rofi.location: 		0
+rofi.opacity: 		65
+rofi.bg:		#2C3E50
+rofi.fg:		#E0E0E0
