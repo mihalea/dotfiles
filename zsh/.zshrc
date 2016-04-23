@@ -64,7 +64,7 @@ ZSH_CUSTOM=/home/mircea/.oh-my-zsh/custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(sudo wd git ssh-agent aliases clipboard)
+plugins=(sudo wd git ssh-agent aliases clipboard notify)
 
 # User configuration
 
