@@ -253,7 +253,7 @@ workspace $workspace2 output LVDS
 workspace $workspace9 output LVDS
 
 exec --no-startup-id compton
-exec --no-startup-id xautolock -detectsleep -time 10 -notify 30 -notifier "notify-send -u critical -t 10000 'Locking screen in 30 seconds'" -locker slimlock
+#exec --no-startup-id xautolock -detectsleep -time 10 -notify 30 -notifier "notify-send -u critical -t 10000 'Locking screen in 30 seconds'" -locker slimlock
 exec --no-startup-id $HOME/bin/lightson+.sh -d 540
 exec --no-startup-id dunst
 exec --no-startup-id xrdb -load $HOME/.Xresources
