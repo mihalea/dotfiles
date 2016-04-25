@@ -76,7 +76,6 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -184,14 +183,15 @@ client.focused          $inactive-bg-color "#959ea7" "#ffffff" #959ea7
 # finds out, if available)
 
 bar {
-        status_command i3blocks -c ~/.i3/i3blocks.conf
-	i3bar_command i3bar
+	status_command python3 $HOME/.i3/status.py
         #tray_output primary
 	position top
+	workspace_buttons yes
 	#strip_workspace_numbers yes
 	#height 25
 	tray_padding 10
 	tray_output none
+	separator_symbol "  "
 	colors {
 		background	$bg-color
 		statusline	#E7E9DB
@@ -227,6 +227,9 @@ bindsym $mod+F12 exec maim /tmp/screenshot.png && imgur-screenshot /tmp/screensh
 bindsym $mod+F11 exec "maim -s -c 1,0,0,0.6 /tmp/screenshot.png && imgur-screenshot /tmp/screenshot.png"
 bindsym $mod+Shift+P exec --no-startup-id $HOME/bin/startplayer $workspace10
 bindsym $mod+L exec slimlock
+
+bindsym $mod+s scratchpad show
+bindsym $mod+shift+s move scratchpad
 
 # i3 config
 gaps outer 5
