@@ -49,3 +49,4 @@ rofi.location: 		0
 rofi.opacity: 		65
 rofi.bg:		#2C3E50
 rofi.fg:		#E0E0E0
+rofi.font:		Terminus 12
