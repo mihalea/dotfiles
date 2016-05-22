@@ -45,8 +45,7 @@ URxvt.iso14755: false
 
 rofi.padding:		250
 rofi.separator-style: 	none
-rofi.location: 		0
-rofi.opacity: 		65
+rofi.opacity: 		85
 rofi.bg:		#2C3E50
 rofi.fg:		#E0E0E0
 rofi.font:		Terminus 12
