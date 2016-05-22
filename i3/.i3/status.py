@@ -9,7 +9,7 @@ status.register("clock", format="  %a %-d %b %R",)
 
 status.register("backlight",
         format="  {percentage}%",
-        base_path="/sys/class/backlight/radeon_bl0/")
+        base_path="/sys/class/backlight/acpi_video0/")
 
 status.register("pulseaudio",
         format="  {volume}")
@@ -42,15 +42,24 @@ status.register("load",
         hints = {"separator": False, "separator_block_width": 0},)
 
 status.register("mpd",
-        format="{status} {title}")
+        format="{status} {title}",
+        status={'play': '', 'stop': '', 'pause': ''})
 
 status.register("network", 
-        format_up="  {essid} [{quality}%]", 
+        format_up=" {essid} [{quality}%]", 
         format_down="  nil",
         color_up="#ffffff",
         interface="wlp8s0")
 
-# status.register("openvpn")
+status.register("openvpn", 
+        format="{status}",
+        vpn_name="balerion",
+        status_command="bash -c 'systemctl show openvpn@balerion | grep ActiveState=active'",
+        color_up="#00ffff",
+        color_down="#ffffff",
+        status_down="",
+        status_up="",
+        hints={"separator": False, "separator_block_width": 0})
 
 status.register("dpms")
 

@@ -76,8 +76,8 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+#bindsym $mod+e layout tabbed
+bindsym $mod+w layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -136,7 +136,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit && exec rm /tmp/monitorstate'"
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit && exec rm /tmp/monitorstate'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -206,6 +206,17 @@ bar {
 	}
 }
 
+set $session " (L)ogoff  (P)oweroff  (R)estart"
+mode  $session {
+         bindsym l exec $psst i3-msg exit; mode "default"
+         bindsym p exec $psst systemctl poweroff; mode "default"
+         bindsym r exec $psst systemctl reboot; mode "default"
+
+         bindsym q mode "default"
+         bindsym Escape mode "default"
+}
+bindsym $mod+Shift+e mode $session
+
 # Multimedia Keys
 # increase volume
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
@@ -228,8 +239,9 @@ bindsym $mod+F11 exec "maim -s -c 1,0,0,0.6 /tmp/screenshot.png && imgur-screens
 bindsym $mod+Shift+P exec --no-startup-id $HOME/bin/startplayer $workspace10
 bindsym $mod+L exec slimlock
 
-bindsym $mod+s scratchpad show
-bindsym $mod+shift+s move scratchpad
+bindsym $mod+e exec urxvt -e ranger
+bindsym $mod+p exec $HOME/bin/monitor.sh
+bindsym $mod+shift+n exec "$HOME/bin/setwallpaper -n"
 
 # i3 config
 gaps outer 5
@@ -251,11 +263,11 @@ for_window [title="TeamViewer Panel (minimized)"] floating enable, move absolute
 for_window [title="TeamViewer Panel"] floating enable, move absolute position 900 px 0 px
 for_window [title="TeamViewer"] floating enable, move absolute position 900 px 0 px
 
-workspace $workspace1 output HDMI-0
-workspace $workspace2 output LVDS
-workspace $workspace9 output LVDS
+workspace $workspace1 output HDMI-1
+workspace $workspace2 output LVDS-1
+workspace $workspace9 output LVDS-1
 
-exec --no-startup-id compton
+exec --no-startup-id compton -b --config $HOME/.config/compton.conf
 #exec --no-startup-id xautolock -detectsleep -time 10 -notify 30 -notifier "notify-send -u critical -t 10000 'Locking screen in 30 seconds'" -locker slimlock
 exec --no-startup-id $HOME/bin/lightson+.sh -d 540
 exec --no-startup-id dunst
@@ -264,5 +276,6 @@ exec --no-startup-id xrdb -load $HOME/.Xresources
 exec --no-startup-id $HOME/bin/monitor.sh
 exec --no-startup-id thunderbird
 exec --no-startup-id mopidy
+exec --no-startup-id owncloud
 
 exec skype
