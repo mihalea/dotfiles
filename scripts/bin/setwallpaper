@@ -6,16 +6,78 @@ path="$HOME/Pictures/Wallpapers"
 #Writing to /tmp instead of /var/run to simplify deployment
 pid_file="/tmp/setwallpaper.pid"
 
+force=0
+next=0
+
+function next {
+	if [ ! -z $pid ]; then
+		kill -SIGUSR1 $pid 
+	else
+		echo "No instance is running"
+	fi
+}
+
+function start_loop {
+	#Idk why just trapping the signals is enough to trigger a new iteration in the loop below
+	trap "echo 'Caught SIGUSR1'" SIGUSR1
+	trap "exit" SIGINT
+	while true; do
+		set
+		sleep 5m &
+		wait
+	done
+}
+
+function set {
+	find $DIRECTORY/ -type f \( -iname '*.jpg' -o -iname '*.png' \) | shuf -n1 | xargs feh --bg-fill 2> /dev/null
+}
+
+while test $# -gt 0; do
+	case "$1" in
+		-f|--force)
+			force=1
+			shift
+			;;
+		-n|--next)
+			next=1
+			break
+			;;
+		-p|--path)
+			shift
+			if test $# -gt 0; then
+				export DIRECTORY=$1
+			else
+				echo "No path specified"
+			fi
+			shift
+			;;
+		*)
+			echo "Unexpected flag"
+			;;
+	esac
+done
+
+if [ -z $DIRECTORY ]; then
+	DIRECTORY=$path
+fi
+
 if [ -s $pid_file ]; then
 	read pid < $pid_file
+fi
+
+if [ $next = 1 ]; then
+	next
+else
 	if [ ! -z $pid ]; then
-		kill -s 0 "$pid" && kill -s 9 "$pid"
+		if [ $force = 1 ]; then
+			kill -s 0 "$pid" 2> /dev/null && kill -s 9 "$pid" 2> /dev/null
+			echo "$$" > $pid_file
+			start_loop
+		else
+			echo "An instance is already running"
+		fi
+	else
+		start_loop
 	fi
 fi
 
-echo "$$" > $pid_file
-
-while true; do
-	find $path/ -type f \( -iname '*.jpg' -o -iname '*.png' \) | shuf -n1 | xargs feh --bg-scale
-	sleep 15m
-done
