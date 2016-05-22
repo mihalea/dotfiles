@@ -1,4 +1,5 @@
-set nu
+set number
+set relativenumber
 syntax on
 
 autocmd StdinReadPre * let s:std_in=1
