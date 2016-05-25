@@ -7,4 +7,3 @@ alias la='ls -la'
 alias sudo='sudo '
 alias update-grub="grub-mkconfig -o /boot/grub/grub.cfg"
 alias cp='rsync -ah --progress'
-alias vim=nvim
