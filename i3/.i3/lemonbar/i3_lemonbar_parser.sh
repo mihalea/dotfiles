@@ -112,7 +112,7 @@ while read -r line ; do
            wsp="${wsp}%{F${color_head} B${color_wsp}}${sep_right}%{F${color_back} B${color_wsp} T1} ${1#???} %{F${color_wsp} B${color_head}}${sep_right}"
            ;;
          INA*|URG*|ACT*)
-           wsp="${wsp}%{F${color_disable} T1} ${1#???} "
+           wsp="${wsp}%{F${color_back} T1} ${1#???} "
            ;;
         esac
         shift

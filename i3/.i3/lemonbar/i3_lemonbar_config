@@ -19,30 +19,30 @@ upd_mpd=5                           # MPD song update
 upd_bat=5
 
 # --- APPLY XRES BEGIN
-c_red_l="#ffCC6666"
-c_green_l="#ffBDE077"
-c_cyan_d="#ff72AD8C"
+c_cyan_d="#ff689d6a"
+c_cyan_l="#ff8ec07c"
+c_black_d="#ff282828"
 c_cursor="#fffff000"
-c_yellow_d="#ffFEA63C"
-c_green_d="#ffB7CE42"
-c_yellow_l="#ffFFE863"
-c_foreground="#ffddeedd"
-c_blue_l="#ffAACCBB"
-c_magenta_l="#ffff5879"
-c_black_d="#ff25374A"
-c_background="#ff131D24"
-c_magenta_d="#ffF26B9E"
-c_black_l="#ff3A526B"
-c_blue_d="#ff66AABB"
-c_white_l="#ffFFFFFF"
-c_cyan_l="#ff9FE3BC"
-c_red_d="#ffBD4A4A"
-c_white_d="#ffDDEEDD"
+c_green_l="#ffb8bb26"
+c_red_l="#fffb4934"
+c_yellow_d="#ffd79921"
+c_black_l="#ff928374"
+c_blue_l="#ff83a598"
+c_green_d="#ff98971a"
+c_foreground="#ffebdbb2"
+c_yellow_l="#fffabd2f"
+c_magenta_d="#ffb16286"
+c_blue_d="#ff458588"
+c_red_d="#ffcc241d"
+c_white_d="#ffa89984"
+c_magenta_l="#ffd3869b"
+c_white_l="#ffebdbb2"
+c_background="#ff32302f"
 # --- APPLY XRES END
 
 # color definitions 
 color_back="$c_background"              # Default background
-color_fore="$c_white_l"              # Default foreground
+color_fore="$c_foreground"              # Default foreground
 color_head="$c_yellow_d"              # Background for unselected workspaces
 color_wsp="$c_yellow_l"               # Background for selected workspace
 color_sec_b1="$c_black_d"            # Background for section 1
