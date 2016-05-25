@@ -166,44 +166,38 @@ bindsym $mod+minus resize shrink width 10 px or 10 ppt
 bindsym $mod+plus resize grow width 10 px or 10 ppt
 bindsym $mod+r mode "resize"
 
-set $bg-color 	         #2C3E50
-set $inactive-bg-color   #2f343f
-set $text-color          #2ECC71
-set $inactive-text-color #A39E98
-set $urgent-bg-color     #E53935
+# Xresource-based. Do not edit manually, will be overwritten by script
+# --- APPLY XRES BEGIN
+set $c_red_l #fb4934
+set $c_blue_l #83a598
+set $c_blue_d #458588
+set $c_magenta_d #b16286
+set $c_black_d #1d2021
+set $c_cyan_l #8ec07c
+set $c_magenta_l #d3869b
+set $c_yellow_l #fabd2f
+set $c_red_d #cc241d
+set $c_background #282828
+set $c_cyan_d #689d6a
+set $c_green_l #b8bb26
+set $c_foreground #ebdbb2
+set $c_white_d #dbae93
+set $c_green_d #98971a
+set $c_yellow_d #d79921
+set $c_cursor #fff000
+set $c_white_l #fbf1c7
+set $c_black_l #665c54
+# --- APPLY XRES END
 
-# class                 border  backgr. text    indicator
-client.focused          $inactive-bg-color "#959ea7" "#ffffff" #959ea7
-#client.focused_inactive "#41323F" "$bg-color" "$inactive-text-color" #41323F
-#client.unfocused        #41323F $bg-color $inactive-text-color #41323F
-#client.urgent           #41323F $text-color #ffffff #41323F
-#client.placeholder      #41323F $bg-color $text-color #41323F
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+#class                  background?   border        text          split
+client.focused          $c_white_d    $c_white_d    $c_black_l    $c_white_d
+client.focused_inactive $c_black_d    $c_background    $c_black_l    $c_black_d
+client.unfocused        $c_black_d    $c_background    $c_black_l    $c_black_d
+client.urgent           $c_magenta_l  $c_magenta_l  $c_black_l    $c_magenta_l
+client.background       $c_background
 
 bar {
-	status_command python3 $HOME/.i3/status.py
-        #tray_output primary
-	position top
-	workspace_buttons yes
-	#strip_workspace_numbers yes
-	#height 25
-	tray_padding 10
-	tray_output none
-	separator_symbol "  "
-	colors {
-		background	$bg-color
-		statusline	#E7E9DB
-		separator	#776E71	
-
-		# Type		   border  background font
-		focused_workspace  $bg-color $bg-color $text-color
-        	active_workspace   $bg-color $bg-color $inactive-text-color
-        	inactive_workspace $bg-color $bg-color $inactive-text-color
-	    	urgent_workspace   $text-color $text-color #ffffff
-		
-	}
+	i3bar_command $HOME/.i3/lemonbar/lemonbar.sh
 }
 
 set $session " (L)ogoff  (P)oweroff  (R)estart"

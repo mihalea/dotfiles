@@ -7,13 +7,13 @@ URxvt.scrollBar: false
 urxvt.depth: 32
 
 ! URxvt*background:                     [95]#2C3E50
-URxvt.background:                     [90]#2C3E50
-URxvt*foreground:                     #e0e0e0
-URxvt*cursorColor:                    #e0e0e0
-
 URxvt*scrollColor:                    #e0e0e0
 URxvt*highlightColor:                 #7F8C8D
 URxvt*highlightTextColor:             #BDC3C7
+
+URxvt.background:                     [90]#2C3E50
+URxvt*foreground:                     #e0e0e0
+URxvt*cursorColor:                    #e0e0e0
 
 URxvt*color0:                         #2C3E50
 URxvt*color1:                         #E74C3C
