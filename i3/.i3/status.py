@@ -9,7 +9,7 @@ status.register("clock", format="  %a %-d %b %R",)
 
 status.register("backlight",
         format="  {percentage}%",
-        base_path="/sys/class/backlight/acpi_video0/")
+        base_path="/sys/class/backlight/radeon_bl0/")
 
 status.register("pulseaudio",
         format="  {volume}")
@@ -60,7 +60,5 @@ status.register("openvpn",
         status_down="",
         status_up="",
         hints={"separator": False, "separator_block_width": 0})
-
-status.register("dpms")
 
 status.run()
