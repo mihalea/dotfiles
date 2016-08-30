@@ -47,7 +47,7 @@ status.register("mpd",
 
 status.register("network", 
         format_up=" {essid} [{quality}%]", 
-        format_down="  nil",
+        format_down=" Disconnected",
         color_up="#ffffff",
         interface="wlp8s0")
 

@@ -278,7 +278,7 @@ workspace $workspace1 output HDMI-1
 workspace $workspace2 output LVDS-1
 workspace $workspace9 output LVDS-1
 
-exec --no-startup-id compton -b --config $HOME/.config/compton.conf
+exec --no-startup-id compton -b
 #exec --no-startup-id xautolock -detectsleep -time 10 -notify 30 -notifier "notify-send -u critical -t 10000 'Locking screen in 30 seconds'" -locker slimlock
 exec --no-startup-id $HOME/bin/lightson+.sh -d 540
 exec --no-startup-id dunst
