@@ -230,11 +230,11 @@ bindsym $mod+Shift+e mode $session
 
 # Multimedia Keys
 # increase volume
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
+bindsym XF86AudioRaiseVolume exec $HOME/bin/volume.sh up
 # decrease volume
-bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
+bindsym XF86AudioLowerVolume exec $HOME/bin/volume.sh down
 # mute volume
-bindsym XF86AudioMute exec amixer -q set Master mute
+bindsym XF86AudioMute exec $HOME/bin/volume.sh mute
 # pause / play / next / previous
 bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioNext exec mpc next
@@ -283,10 +283,12 @@ exec --no-startup-id compton -b
 exec --no-startup-id $HOME/bin/lightson+.sh -d 540
 exec --no-startup-id dunst
 exec --no-startup-id xrdb -load $HOME/.Xresources
+exec --no-startup-id volnoti
 
 exec --no-startup-id $HOME/bin/monitor2.sh
 exec --no-startup-id thunderbird
 exec --no-startup-id mopidy
 exec --no-startup-id owncloud
+exec --no-startup-id thunar --daemon
 
 exec skype
