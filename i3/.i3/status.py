@@ -46,9 +46,10 @@ status.register("mpd",
         status={'play': '', 'stop': '', 'pause': ''})
 
 status.register("network", 
-        format_up=" {essid} [{quality}%]", 
-        format_down=" Disconnected",
+        format_up="{essid} [{quality}%]", 
+        format_down="Disconnected",
         color_up="#ffffff",
+        on_leftclick="cycle_interface",
         interface="wlp8s0")
 
 status.register("openvpn", 
@@ -57,8 +58,8 @@ status.register("openvpn",
         status_command="bash -c 'systemctl show openvpn@balerion | grep ActiveState=active'",
         color_up="#00ffff",
         color_down="#ffffff",
-        status_down="",
+        status_down="",
         status_up="",
-        hints={"separator": False, "separator_block_width": 0})
+        hints={"separator": False, "separator_block_width": 5})
 
 status.run()

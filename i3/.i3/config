@@ -240,8 +240,8 @@ bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPrev exec mpc previous
 
-bindsym XF86MonBrightnessDown exec --no-startup-id sudo $HOME/bin/bright_down.sh
-bindsym XF86MonBrightnessUp exec --no-startup-id sudo $HOME/bin/bright_up.sh
+bindsym XF86MonBrightnessDown exec light -U 10 && volnoti-show -s /usr/share/pixmaps/volnoti/display-brightness-symbolic.svg $(light -G)
+bindsym XF86MonBrightnessUp exec light -A 10 && volnoti-show -s /usr/share/pixmaps/volnoti/display-brightness-symbolic.svg $(light -G)
 
 bindsym Print exec maim ~/Pictures/Screenshots/$(date +%F-%T).png
 bindsym Control+Print exec maim -s -c 1,0,0,0.6 -p 10 ~/Pictures/Screenshots/$(date +%F-%T).png
@@ -274,9 +274,9 @@ for_window [title="TeamViewer Panel (minimized)"] floating enable, move absolute
 for_window [title="TeamViewer Panel"] floating enable, move absolute position 900 px 0 px
 for_window [title="TeamViewer"] floating enable, move absolute position 900 px 0 px
 
-workspace $workspace1 output HDMI-1
-workspace $workspace2 output LVDS-1
-workspace $workspace9 output LVDS-1
+workspace $workspace1 output HDMI-0
+workspace $workspace2 output LVDS
+workspace $workspace9 output LVDS
 
 exec --no-startup-id compton -b
 #exec --no-startup-id xautolock -detectsleep -time 10 -notify 30 -notifier "notify-send -u critical -t 10000 'Locking screen in 30 seconds'" -locker slimlock
@@ -285,7 +285,7 @@ exec --no-startup-id dunst
 exec --no-startup-id xrdb -load $HOME/.Xresources
 exec --no-startup-id volnoti
 
-exec --no-startup-id $HOME/bin/monitor2.sh
+exec --no-startup-id $HOME/bin/monitor.sh
 exec --no-startup-id thunderbird
 exec --no-startup-id mopidy
 exec --no-startup-id owncloud
