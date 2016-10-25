@@ -56,3 +56,5 @@ rofi.color-active:		#282828, #ebdbb2, #282828, #cc241d, #ebdbb2
 rofi.padding:		250
 rofi.separator-style: 	none
 rofi.font:		Terminus 12
+
+URxvt.perl-ext-common: 'clipboard'

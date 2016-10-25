@@ -7,28 +7,24 @@ status = Status()
 #                          ^-- calendar week
 status.register("clock", format="  %a %-d %b %R",)
 
-status.register("backlight",
-        format="  {percentage}%",
-        base_path="/sys/class/backlight/radeon_bl0/")
-
 status.register("pulseaudio",
         format="  {volume}")
 
-status.register(
-    'battery',
-    interval=5,
-    format=' [{status}  ]{percentage:.0f}% [({remaining}h)]',
-    alert=True,
-    alert_percentage=15,
-    status = {
-        'DPL': '',
-        'CHR': '',
-        'DIS': '',
-        'FULL': '',
-    },
-    full_color="#ffffff",
-    charging_color="#ffffff",
-)
+#status.register(
+#    'battery',
+#    interval=5,
+#    format=' [{status}  ]{percentage:.0f}% [({remaining}h)]',
+#    alert=True,
+#    alert_percentage=15,
+#    status = {
+#        'DPL': '',
+#        'CHR': '',
+#        'DIS': '',
+#        'FULL': '',
+#    },
+#    full_color="#ffffff",
+#    charging_color="#ffffff",
+#)
 
 status.register("disk", 
         path="/",
@@ -50,7 +46,7 @@ status.register("network",
         format_down="Disconnected",
         color_up="#ffffff",
         on_leftclick="cycle_interface",
-        interface="wlp8s0")
+        interface="wlp5s0")
 
 status.register("openvpn", 
         format="{status}",
