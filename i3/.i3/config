@@ -263,7 +263,7 @@ for_window [class="^.*"] border pixel 2
 assign [class="Firefox"] $workspace1
 assign [class="Spotify"] $workspace10
 assign [class="Skype"] $workspace9
-assign [class="Thunderbird"] $workspace8
+assign [class="Fossamail"] $workspace8
 #assign [class="XTerm"] $workspace2
 
 #Spotify is an unique snowflake
@@ -286,7 +286,7 @@ exec --no-startup-id xrdb -load $HOME/.Xresources
 exec --no-startup-id volnoti
 
 exec --no-startup-id $HOME/bin/monitor.sh
-exec --no-startup-id thunderbird
+exec --no-startup-id fossamail
 exec --no-startup-id mopidy
 exec --no-startup-id owncloud
 exec --no-startup-id thunar --daemon
