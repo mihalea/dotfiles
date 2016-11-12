@@ -1,4 +1,5 @@
 from i3pystatus import Status
+from i3pystatus.updates import pacman, yaourt
 
 status = Status()
 
@@ -27,19 +28,29 @@ status.register("pulseaudio",
 #)
 
 status.register("disk", 
-        path="/",
-        format="  {used}/{total}G")
+        path="/home",
+        format="  {used}/{total} GB")
+
+status.register("cpu_freq",
+               format=" {avgg} GHz",)
 
 status.register("temp",
-        format=" {temp}°C",)
+        format=" {temp}°C",
+        hints = {"separator": False, "separator_block_width": 0},)
 
 status.register("load",
         format="  {avg1}",
         hints = {"separator": False, "separator_block_width": 0},)
 
 status.register("mpd",
-        format="{status} {title}",
+        format="{status}  {title}",
         status={'play': '', 'stop': '', 'pause': ''})
+
+status.register("updates",
+                format = "Updates: {count}",
+               format_no_updates = "",
+               backends = [pacman.Pacman(), yaourt.Yaourt()],
+               on_leftclick = 'urxvt -hold -e yaourt -Syu --aur',)
 
 status.register("network", 
         format_up="{essid} [{quality}%]", 
