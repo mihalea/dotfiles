@@ -75,7 +75,7 @@ def replace_in_file(fname, replacement, begin="# --- APPLY XRES BEGIN", end="# -
 						sidx = idx + 1
 				elif l == end+"\n":
 						eidx = idx - 1
-						idx += 1
+				idx += 1
 
 		f.close()
 
