@@ -128,8 +128,8 @@ bindsym $mod+Shift+0 move container to workspace $workspace10; workspace $worksp
 
 bindsym $mod+Control+Down move workspace to output left
 
-bindsym $mod+Tab workspace next_on_output
-bindsym $mod+Shift+Tab workspace prev_on_output
+bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Shift+Tab workspace next_on_output
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -274,21 +274,13 @@ for_window [title="TeamViewer Panel (minimized)"] floating enable, move absolute
 for_window [title="TeamViewer Panel"] floating enable, move absolute position 900 px 0 px
 for_window [title="TeamViewer"] floating enable, move absolute position 900 px 0 px
 
-workspace $workspace1 output HDMI-0
-workspace $workspace2 output LVDS
-workspace $workspace9 output LVDS
-
 exec --no-startup-id compton -CGb
-#exec --no-startup-id xautolock -detectsleep -time 10 -notify 30 -notifier "notify-send -u critical -t 10000 'Locking screen in 30 seconds'" -locker slimlock
-exec --no-startup-id $HOME/bin/lightson+.sh -d 540
 exec --no-startup-id dunst
 exec --no-startup-id xrdb -load $HOME/.Xresources
 exec --no-startup-id volnoti
 
-exec --no-startup-id $HOME/bin/monitor.sh
+exec --no-startup-id $HOME/bin/setwallpaper
 exec --no-startup-id fossamail
 exec --no-startup-id mopidy
-exec --no-startup-id owncloud
+exec --no-startup-id nextcloud
 exec --no-startup-id thunar --daemon
-
-exec skype
