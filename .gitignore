@@ -1,3 +1,4 @@
+*.pyc
 ncmpcpp/.ncmpcpp/error.log
 ssh/.ssh/*
 !ssh/.ssh/config

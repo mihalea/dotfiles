@@ -1,4 +1,5 @@
 from i3pystatus import Status
+from i3pystatus.updates import pacman, yaourt
 
 status = Status()
 
@@ -7,50 +8,56 @@ status = Status()
 #                          ^-- calendar week
 status.register("clock", format="  %a %-d %b %R",)
 
-status.register("backlight",
-        format="  {percentage}%",
-        base_path="/sys/class/backlight/radeon_bl0/")
-
 status.register("pulseaudio",
         format="  {volume}")
 
-status.register(
-    'battery',
-    interval=5,
-    format=' [{status}  ]{percentage:.0f}% [({remaining}h)]',
-    alert=True,
-    alert_percentage=15,
-    status = {
-        'DPL': '',
-        'CHR': '',
-        'DIS': '',
-        'FULL': '',
-    },
-    full_color="#ffffff",
-    charging_color="#ffffff",
-)
+#status.register(
+#    'battery',
+#    interval=5,
+#    format=' [{status}  ]{percentage:.0f}% [({remaining}h)]',
+#    alert=True,
+#    alert_percentage=15,
+#    status = {
+#        'DPL': '',
+#        'CHR': '',
+#        'DIS': '',
+#        'FULL': '',
+#    },
+#    full_color="#ffffff",
+#    charging_color="#ffffff",
+#)
 
 status.register("disk", 
-        path="/",
-        format="  {used}/{total}G")
+        path="/home",
+        format="  {used}/{total} GB")
+
+status.register("cpu_freq",
+               format=" {avgg} GHz",)
 
 status.register("temp",
-        format=" {temp}°C",)
+        format=" {temp}°C",
+        hints = {"separator": False, "separator_block_width": 0},)
 
 status.register("load",
         format="  {avg1}",
         hints = {"separator": False, "separator_block_width": 0},)
 
 status.register("mpd",
-        format="{status} {title}",
+        format="{status}  {title}",
         status={'play': '', 'stop': '', 'pause': ''})
+
+status.register("updates",
+                format = "Updates: {count}",
+               format_no_updates = "",
+               backends = [pacman.Pacman(), yaourt.Yaourt()],
+               on_leftclick = 'urxvt -hold -e yaourt -Syu --aur',)
 
 status.register("network", 
         format_up="{essid} [{quality}%]", 
         format_down="Disconnected",
         color_up="#ffffff",
         on_leftclick="cycle_interface",
-        interface="wlp8s0")
+        interface="wlp5s0")
 
 status.register("openvpn", 
         format="{status}",
