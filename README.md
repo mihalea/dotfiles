@@ -9,11 +9,13 @@ Some reliable sources of information that have helped me through the conquest of
 #### Fake dirty
 ![Fake dirty](http://i.imgur.com/bdR8Qwx.png)
 
-#### Neofetch
-![Neofetch](http://i.imgur.com/IHKBUJh.jpg)
+#### System summary
+![Summary](http://i.imgur.com/IHKBUJh.jpg)
+Screenshot created using [neofetch](https://github.com/dylanaraps/neofetch).
 
 #### Clean
 ![Clean](http://i.imgur.com/sFUYhxL.jpg)
 
 #### Rofi
 ![Rofi](http://i.imgur.com/EC9LbzR.png)
+Screenshot created using [this script](https://github.com/DaveDavenport/rofi/blob/master/script/rofi-create-screenshot.sh) and gimp.
