@@ -1,47 +1,19 @@
 # dotfiles
 
-After spending many hours customizing ArchLinux to my liking I thought that it would be a shame to lose all that work or pass it around on a spare flash drive. Therefore through the use of git and Gnu Stow I have devised a method of keeping track of all this files, making reinstalls hassle free.
+After spending many hours customizing Arch Linux to my liking I thought that it would be a shame to lose all that work or pass it around on a spare flash drive. Therefore through the use of git and Gnu Stow I have devised a method of keeping track of all this files, making reinstalls hassle free.
 
 Some reliable sources of information that have helped me through the conquest of GNU/Linux are [the ArchWiki](https://wiki.archlinux.org/) and [forums](https://bbs.archlinux.org/), [the i3 docs](http://i3wm.org/docs/), [github](https://github.com/) for numerous examples, and many other documentation websites.
 
-## Recommended packages
-* dunst
-  * dunst
-* i3
-  * i3-gaps
-  * i3blocks
-  * i3lock-color
-  * rofi
-  * mpc
-  * maim
-  * compton
-* ncmpcpp
-  * ncmpcpp
-  * mopidy
-  * mopify-mopidy
-* scripts
-  * bc
-  * playerctl
-  * acpi
-  * xorg-xrandr
-  * iproute2
-  * feh
-  * lm_sensors
-  * wget
-  * xorg-xprop
-  * python
-  * imgur-screenshot
-  * slop
-  * xclip
-  * libnotify
-* ssh
-  * openssh
-* urxvt
-  * rxvt-unicode-patched
-* vim
-  * vim
-  * vim-nerdtree
-* zsh
-  * zsh
+## Screenshots
 
-**Notes:** I am sure that even with all the packages above installed not all the scripts will run as the list is incomplete. I'm hoping that after several reinstalls this note will be gone.
+#### Fake dirty
+![Fake dirty](http://i.imgur.com/bdR8Qwx.png)
+
+#### Neofetch
+![Neofetch](http://i.imgur.com/IHKBUJh.jpg)
+
+#### Clean
+![Clean](http://i.imgur.com/sFUYhxL.jpg)
+
+#### Rofi
+![Rofi](http://i.imgur.com/EC9LbzR.png)
