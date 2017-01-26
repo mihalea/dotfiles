@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Terminus 8
+font pango:xos4 Terminus 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -128,8 +128,8 @@ bindsym $mod+Shift+0 move container to workspace $workspace10; workspace $worksp
 
 bindsym $mod+Control+Down move workspace to output left
 
-bindsym $mod+Tab workspace back_and_forth
-bindsym $mod+Shift+Tab workspace next_on_output
+bindsym Mod1+Tab workspace back_and_forth
+bindsym $mod+Tab workspace next_on_output
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -243,10 +243,12 @@ bindsym XF86AudioPrev exec mpc previous
 bindsym XF86MonBrightnessDown exec light -U 10 && volnoti-show -s /usr/share/pixmaps/volnoti/display-brightness-symbolic.svg $(light -G)
 bindsym XF86MonBrightnessUp exec light -A 10 && volnoti-show -s /usr/share/pixmaps/volnoti/display-brightness-symbolic.svg $(light -G)
 
-bindsym Print exec maim ~/Pictures/Screenshots/$(date +%F-%T).png
-bindsym Control+Print exec maim -s -c 1,0,0,0.6 -p 10 ~/Pictures/Screenshots/$(date +%F-%T).png
-bindsym $mod+F12 exec maim /tmp/screenshot.png && imgur-screenshot /tmp/screenshot.png
-bindsym $mod+F11 exec "maim -s -c 1,0,0,0.6 /tmp/screenshot.png && imgur-screenshot /tmp/screenshot.png"
+bindsym Print exec $HOME/bin/screenshot
+bindsym Shift+Print exec $HOME/bin/screenshot -s
+bindsym $mod+F12 exec $HOME/bin/screenshot -u
+bindsym $mod+Shift+F12 exec $HOME/bin/screenshot -u -s
+bindsym $mod+F11 exec $HOME/bin/screenshot -c
+bindsym $mod+Shift+F11 exec $HOME/bin/screenshot -c -s
 bindsym $mod+Shift+P exec --no-startup-id $HOME/bin/startplayer $workspace10
 bindsym $mod+L exec slimlock
 

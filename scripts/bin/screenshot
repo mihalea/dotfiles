@@ -1,0 +1,77 @@
+#!/bin/bash
+
+# Directory in which the screenshots will be stored
+folder="$HOME/Pictures/Screenshots/"
+
+# Filename of the screenshot
+filename="$(date +%F-%T).png"
+
+path=${folder}${filename}
+cmd="maim $path"
+
+# Flags that handle user arguments
+selection=false
+upload=false
+copy=false
+
+if [ $# -eq 0 ]; then
+	# If no arguments have been passed, create a simple screenshot
+	eval $cmd
+else
+	# Parse all the arguments and set the corresponding flags
+	while [[ $# -gt 0 ]]
+	do
+		key="$1"
+		case $key in
+			-s|--selection)
+				selection=true
+				shift
+				;;
+			-u|--upload)
+				upload=true
+				shift
+				;;
+			-c|--copy)
+				copy=true
+				shift
+				;;
+			*)
+				echo "Unknown option: $1"
+				shift
+				;;
+		esac
+	done
+
+
+
+	# Debug output. Will not normally be seen as keybinds are used to call this script.
+	echo "SELECTION: $selection"
+	echo "UPLOAD: $upload"
+	echo "COPY: $copy"
+
+	# Select a window or make a selection with a red rectangle
+	if [ $selection = true ]; then
+		cmd="$cmd -s -c 1,0,0,0.6"
+	fi
+
+	# Upload the image to imgur and do not open the link
+	if [ $upload = true ]; then
+		cmd="$cmd && imgur-screenshot -o false $path"
+	fi
+
+	# Copy the image to the clipboard
+	if [ $copy = true ]; then
+		cmd="$cmd && xclip -selection clipboard -t image/png < $path"
+	fi
+
+	# If the image is to be uploaded or copied, delete it from storage
+	if [ $copy = true ] || [ $upload = true ]; then
+		cmd="$cmd && rm $path"
+	fi
+
+	# Run the compound command
+	eval $cmd
+
+fi
+
+	

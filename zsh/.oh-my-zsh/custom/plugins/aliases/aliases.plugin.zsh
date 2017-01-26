@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+
 alias ls='ls --color=auto'
 alias l=ls
 alias ll='ls -l'
