@@ -1,5 +1,7 @@
 URxvt.internalBorder:   5
 URxvt.scrollBar: false
+URxvt.font: xft:xos4 Terminus:size=10
+
 
 ! Base16 Flat
 ! Scheme: Chris Kempson (http://chriskempson.com)
