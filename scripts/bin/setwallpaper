@@ -25,7 +25,7 @@ function start_loop {
 	trap "exit" SIGINT
 	while true; do
 		set
-		sleep 5m &
+		sleep 1m &
 		wait
 	done
 }
