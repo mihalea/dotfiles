@@ -61,7 +61,7 @@ else
 
 	# Copy the image to the clipboard
 	if [ $copy = true ]; then
-		cmd="$cmd && xclip -selection clipboard -t image/png < $path"
+		cmd="$cmd && xclip -selection clipboard -t image/png < $path && notify-send \"Screenshot taken\""
 	fi
 
 	# If the image is to be uploaded or copied, delete it from storage
