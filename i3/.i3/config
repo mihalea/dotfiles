@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:xos4 Terminus 8
+font pango:xos4 Terminus 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -196,27 +196,27 @@ client.unfocused        $c_black_d    $c_background    $c_black_l    $c_black_d
 client.urgent           $c_red_l  $c_red_l  $c_black_l    $c_red_l
 client.background       $c_background
 
-bar {
-	status_command python3 $HOME/.i3/status.py
-		position top
-		workspace_buttons yes
-		tray_padding 10
-		tray_output none
-		separator_symbol "  "
-		colors {
-			background	$c_black_d
-				statusline	$c_white_l
-				separator	$c_white_d
-
-				# Type		   border  background font
-				focused_workspace  $c_white_d 	$c_white_d 		$c_black_d
-				active_workspace   $c_black_d 	$c_black_d 	$c_black_l
-				inactive_workspace $c_black_d 	$c_black_d 	$c_black_l
-				urgent_workspace   $c_red_l $c_red_l 	$c_black_d
-
-	}
-}
-
+#bar {
+#	status_command python3 $HOME/.i3/status.py
+#		position top
+#		workspace_buttons yes
+#		tray_padding 50
+#		tray_output none
+#		separator_symbol "  "
+#		colors {
+#			background	$c_black_d
+#				statusline	$c_white_l
+#				separator	$c_white_d
+#
+#				# Type		   border  background font
+#				focused_workspace  $c_white_d 	$c_white_d 		$c_black_d
+#				active_workspace   $c_black_d 	$c_black_d 	$c_black_l
+#				inactive_workspace $c_black_d 	$c_black_d 	$c_black_l
+#				urgent_workspace   $c_red_l $c_red_l 	$c_black_d
+#
+#	}
+#}
+#
 set $session " (L)ogoff  (P)oweroff  (R)estart"
 mode  $session {
          bindsym l exec $psst i3-msg exit; mode "default"
@@ -250,9 +250,9 @@ bindsym $mod+Shift+F12 exec $HOME/bin/screenshot -u -s
 bindsym $mod+F11 exec $HOME/bin/screenshot -c
 bindsym $mod+Shift+F11 exec $HOME/bin/screenshot -c -s
 bindsym $mod+Shift+P exec --no-startup-id $HOME/bin/startplayer $workspace10
-bindsym $mod+L exec slimlock
+#bindsym $mod+L exec slimlock
 
-bindsym $mod+e exec urxvt -e ranger
+bindsym $mod+e exec urxvt -e thunar
 bindsym $mod+p exec $HOME/bin/monitor.sh
 bindsym $mod+shift+n exec "$HOME/bin/setwallpaper -n"
 
@@ -285,3 +285,5 @@ exec --no-startup-id $HOME/bin/monitor.sh
 exec --no-startup-id mopidy
 exec --no-startup-id nextcloud
 exec --no-startup-id thunar --daemon
+
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh

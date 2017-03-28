@@ -11,21 +11,21 @@ status.register("clock", format="  %a %-d %b %R",)
 status.register("pulseaudio",
         format="  {volume}")
 
-#status.register(
-#    'battery',
-#    interval=5,
-#    format=' [{status}  ]{percentage:.0f}% [({remaining}h)]',
-#    alert=True,
-#    alert_percentage=15,
-#    status = {
-#        'DPL': '',
-#        'CHR': '',
-#        'DIS': '',
-#        'FULL': '',
-#    },
-#    full_color="#ffffff",
-#    charging_color="#ffffff",
-#)
+status.register(
+    'battery',
+    interval=5,
+    format=' [{status}  ]{percentage:.0f}% [({remaining}h)]',
+    alert=True,
+    alert_percentage=15,
+    status = {
+        'DPL': '',
+        'CHR': '',
+        'DIS': '',
+        'FULL': '',
+    },
+    full_color="#ffffff",
+    charging_color="#ffffff",
+)
 
 status.register("disk", 
         path="/home",
