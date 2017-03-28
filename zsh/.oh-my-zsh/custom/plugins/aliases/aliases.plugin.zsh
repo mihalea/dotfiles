@@ -10,3 +10,4 @@ alias sudo='sudo '
 alias update-grub="grub-mkconfig -o /boot/grub/grub.cfg"
 alias cpp='rsync -ah --progress'
 alias xclip="xclip -selection c"
+alias gitkraken="LD_PRELOAD=/usr/lib/libcurl.so.3 gitkraken"
