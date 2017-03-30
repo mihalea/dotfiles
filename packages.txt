@@ -6,6 +6,7 @@ wpa_supplicant
 wpa_actiond
 wget
 git
+openssh
 numix-gtk-theme
 breeze-snow-cursor-theme
 ttf-monaco
