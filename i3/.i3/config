@@ -250,7 +250,7 @@ bindsym $mod+Shift+F12 exec $HOME/bin/screenshot -u -s
 bindsym $mod+F11 exec $HOME/bin/screenshot -c
 bindsym $mod+Shift+F11 exec $HOME/bin/screenshot -c -s
 bindsym $mod+Shift+P exec --no-startup-id $HOME/bin/startplayer $workspace10
-#bindsym $mod+L exec slimlock
+bindsym $mod+L exec i3lock -c 333333 -u 
 
 bindsym $mod+e exec urxvt -e thunar
 bindsym $mod+p exec $HOME/bin/monitor.sh
