@@ -22,8 +22,6 @@
     horizontal_padding = 16
     separator_color = auto
     startup_notification = false
-    dmenu = /usr/bin/dmenu -p dunst:
-    browser = /home/jaagr/bin/apps/vimperator
 
 [frame]
     width = 5
@@ -39,7 +37,7 @@
     timeout = 1
 
 [urgency_normal]
-    background = "#2b303b"
+    background = "#2b305b"
     foreground = "#eaeaea"
     timeout = 10
 
