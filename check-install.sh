@@ -27,29 +27,35 @@ function read {
 
 # List the array using the provided decorator
 function list {
-	decorator=$1
-	shift
-	for e in $@; do
-		echo "$decorator $e"
-	done
+	decorator=$1; shift
+	name=$1; shift
+
+	if [[ $# -gt 0 ]]; then
+		echo "== $name ($#)=="
+		for e in $@; do
+			echo "$decorator $e"
+		done
+
+		echo
+	fi
 }
 
 # Find installed and uninstalled packages and print them
 function main {
 	installed=()
-	not_installed=()
+	needed=()
 
 	for p in $(read); do
 		if is_installed $p; then
 			installed+=($p)
 		else
-			not_installed+=($p)
+			needed+=($p)
 		fi
 	done
 	
 
-	list "[ ]" "${not_installed[@]}" 
-	list "[x]" "${installed[@]}" 
+	list "[ ]" "Needed"  "${needed[@]}" 
+	list "[x]" "Installed" "${installed[@]}" 
 }
 
 # Start the application
