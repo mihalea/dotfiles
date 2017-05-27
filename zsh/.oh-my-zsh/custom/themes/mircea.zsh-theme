@@ -21,4 +21,4 @@ vcs_status() {
     fi
 }
 
-PROMPT='%{$fg[red]%}%m %2~ $(vcs_status)»%b '
+PROMPT='%{$fg[green]%}%m %2~ $(vcs_status)»%b '
