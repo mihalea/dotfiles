@@ -282,8 +282,8 @@ exec --no-startup-id xrdb -load $HOME/.Xresources
 exec --no-startup-id volnoti
 
 exec --no-startup-id $HOME/bin/monitor.sh
-exec --no-startup-id mopidy
-#exec --no-startup-id nextcloud
+#exec --no-startup-id mopidy
+exec --no-startup-id nextcloud
 exec --no-startup-id thunar --daemon
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
