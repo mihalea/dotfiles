@@ -46,3 +46,5 @@ brackets-bin
 gitkraken
 intellij-idea-ultimate-edition
 netctl-eduroam
+i3-gaps
+wireless_tools
