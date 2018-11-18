@@ -1,6 +1,6 @@
 URxvt.internalBorder:   5
 URxvt.scrollBar: false
-URxvt.font: xft:Terminus (TTF):size=12
+URxvt.font: xft:xos4 Terminus:size=12
 
 Xft.dpi: 96
 Xft.antialias: true
@@ -21,7 +21,7 @@ URxvt*highlightTextColor:             #BDC3C7
 
 ! special
 URxvt.foreground:   #c0c5ce
-URxvt.background:   [95]#2b303b
+URxvt.background:   [98]#2b303b
 URxvt.cursorColor:  #c0c5ce
 
 ! black

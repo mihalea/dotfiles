@@ -250,19 +250,15 @@ bindsym $mod+Shift+F12 exec $HOME/bin/screenshot -u -s
 bindsym $mod+F11 exec $HOME/bin/screenshot -c
 bindsym $mod+Shift+F11 exec $HOME/bin/screenshot -c -s
 bindsym $mod+Shift+P exec --no-startup-id $HOME/bin/startplayer $workspace10
-bindsym $mod+L exec i3lock -c 333333 -u 
+bindsym $mod+L exec betterlockscreen -l dim 
 
-bindsym $mod+e exec thunar
+bindsym $mod+e exec pcmanfm
 bindsym $mod+p exec $HOME/bin/setwallpaper -f
 bindsym $mod+shift+n exec "$HOME/bin/setwallpaper -n"
 
-# i3 config
-# gaps outer 5
-# gaps inner 10
-#Needed for i3-gaps to disable titlebars
-for_window [class="^.*"] border pixel 2
+## WORKSPACE ASSIGNMENTS
 
-assign [class="Firefox"] $workspace1
+#assign [class="Firefox"] $workspace1
 assign [class="Spotify"] $workspace10
 assign [class="Skype"] $workspace9
 assign [class="Fossamail"] $workspace8
@@ -271,10 +267,109 @@ assign [class="Fossamail"] $workspace8
 #Spotify is an unique snowflake
 for_window [class="Spotify"] move to workspace $workspace10
 
+## FLOATING ASSIGNMENTS
+
 for_window [class="TeamViewer.exe"] floating enable
 for_window [title="TeamViewer Panel (minimized)"] floating enable, move absolute position 900 px 0 px
 for_window [title="TeamViewer Panel"] floating enable, move absolute position 900 px 0 px
 for_window [title="TeamViewer"] floating enable, move absolute position 900 px 0 px
+for_window [title="alsamixer"] floating enable border pixel 1
+for_window [class="Calamares"] floating enable border normal
+for_window [class="Clipgrab"] floating enable
+for_window [title="File Transfer*"] floating enable
+for_window [class="Galculator"] floating enable border pixel 1
+for_window [class="GParted"] floating enable border normal
+for_window [title="i3_help"] floating enable sticky enable border normal
+for_window [class="Lightdm-gtk-greeter-settings"] floating enable
+for_window [class="Lxappearance"] floating enable sticky enable border normal
+for_window [class="Manjaro-hello"] floating enable
+for_window [class="Manjaro Settings Manager"] floating enable border normal
+for_window [title="MuseScore: Play Panel"] floating enable
+for_window [class="Nitrogen"] floating enable sticky enable border normal
+for_window [class="Oblogout"] fullscreen enable
+for_window [class="octopi"] floating enable
+for_window [title="About Pale Moon"] floating enable
+for_window [class="Pamac-manager"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="qt5ct"] floating enable sticky enable border normal
+for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
+for_window [class="Simple-scan"] floating enable border normal
+for_window [class="(?i)System-config-printer.py"] floating enable border normal
+for_window [class="Skype"] floating enable border normal
+for_window [class="Thus"] floating enable border normal
+for_window [class="Timeset-gui"] floating enable border normal
+for_window [class="(?i)virtualbox"] floating enable border normal
+for_window [class="Xfburn"] floating enable
+
+## Borders
+
+# Configure border style <normal|1pixel|pixel xx|none|pixel>
+new_window pixel 1
+new_float normal
+
+# Hide borders
+hide_edge_borders none
+
+# change borders
+bindsym $mod+u border none
+bindsym $mod+y border pixel 1
+
+## settings for i3-gaps
+
+# Set inner/outer gaps
+gaps inner 10
+gaps outer -4
+
+# Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
+# gaps inner|outer current|all set|plus|minus <px>
+# gaps inner all set 10
+# gaps outer all plus 5
+
+# Smart gaps (gaps used if only more than one container on the workspace)
+smart_gaps on
+
+# Smart borders (draw borders around container only if it is not the only container on this workspace) 
+# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
+smart_borders on
+
+# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+## AUTOSTART
 
 exec --no-startup-id compton -CGb
 exec --no-startup-id dunst
@@ -284,6 +379,8 @@ exec --no-startup-id volnoti
 exec --no-startup-id $HOME/bin/monitor.sh
 #exec --no-startup-id mopidy
 exec --no-startup-id nextcloud
-exec --no-startup-id thunar --daemon
+#exec --no-startup-id thunar --daemon
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec --no-startup-id $HOME/bin/kill-nextcloud.sh
