@@ -64,7 +64,7 @@ ZSH_CUSTOM=/home/mircea/.oh-my-zsh/custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(sudo wd git ssh-agent aliases clipboard notify)
+plugins=(sudo wd git ssh-agent aliases clipboard notify autoswitch_virtualenv)
 
 # User configuration
 
@@ -116,3 +116,9 @@ yap () {yay --color=always -Ss "$*" | peco}
 _yay &> /dev/null || true # preload yay completions
 compdef '_pacman_completions_all_packages -S' yac yas yap
 
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte.sh
+fi
+source ~/.dotfiles/lib/zsh-autoenv/autoenv.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
