@@ -64,7 +64,7 @@ ZSH_CUSTOM=/home/mircea/.oh-my-zsh/custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(sudo wd git ssh-agent aliases clipboard notify)
+plugins=(sudo wd git ssh-agent aliases clipboard notify autoswitch_virtualenv)
 
 # User configuration
 
@@ -108,7 +108,9 @@ export VISUAL="vim"
 export EDITOR="vim"
 xset -b
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-source /usr/share/nvm/init-nvm.sh
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte.sh
+fi
+source ~/.dotfiles/lib/zsh-autoenv/autoenv.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

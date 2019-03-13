@@ -36,7 +36,8 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec  "rofi -fullscreen -show run"
+bindsym $mod+d exec  "rofi -show drun"
+bindsym $mod+space exec  "rofi -show window"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -76,14 +77,14 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-#bindsym $mod+e layout tabbed
+bindsym $mod+e layout tabbed
 bindsym $mod+w layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -127,6 +128,8 @@ bindsym $mod+Shift+9 move container to workspace $workspace9; workspace $workspa
 bindsym $mod+Shift+0 move container to workspace $workspace10; workspace $workspace10
 
 bindsym $mod+Control+Down move workspace to output left
+bindsym $mod+Control+Left move container to output left
+bindsym $mod+Control+Right move container to output left
 
 bindsym Mod1+Tab workspace back_and_forth
 bindsym $mod+Tab workspace next_on_output
@@ -148,13 +151,13 @@ mode "resize" {
         # Pressing down will grow the window’s height.
         bindsym j resize shrink height 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize grow height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
         bindsym h resize shrink width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Down resize shrink height 10 px or 10 ppt
+        bindsym Up resize grow height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape
@@ -252,9 +255,11 @@ bindsym $mod+Shift+F11 exec $HOME/bin/screenshot -c -s
 bindsym $mod+Shift+P exec --no-startup-id $HOME/bin/startplayer $workspace10
 bindsym $mod+L exec betterlockscreen -l dim 
 
-bindsym $mod+e exec pcmanfm
+#bindsym $mod+e exec ranger
 bindsym $mod+p exec $HOME/bin/setwallpaper -f
 bindsym $mod+shift+n exec "$HOME/bin/setwallpaper -n"
+
+bindsym $mod+t exec "$HOME/bin/i3_empty.sh"
 
 ## WORKSPACE ASSIGNMENTS
 
@@ -374,13 +379,14 @@ mode "$mode_gaps_outer" {
 exec --no-startup-id compton -CGb
 exec --no-startup-id dunst
 exec --no-startup-id xrdb -load $HOME/.Xresources
-exec --no-startup-id volnoti
+#exec --no-startup-id volnoti
 
 exec --no-startup-id $HOME/bin/monitor.sh
 #exec --no-startup-id mopidy
-exec --no-startup-id nextcloud
+#exec --no-startup-id nextcloud
 #exec --no-startup-id thunar --daemon
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+#exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec --no-startup-id $HOME/bin/kill-nextcloud.sh
+exec_always --no-startup-id $HOME/bin/arandr_boost.sh
+#exec --no-startup-id $HOME/bin/kill-nextcloud.sh

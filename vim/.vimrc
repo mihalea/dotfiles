@@ -22,3 +22,6 @@ nnoremap <C-H> <C-W><C-H>
 
 set splitbelow
 set splitright
+
+set exrc
+set secure
