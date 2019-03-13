@@ -22,6 +22,7 @@ ZSH=/usr/share/oh-my-zsh/
 # time that oh-my-zsh is loaded.
 ZSH_THEME="spaceship"
 SPACESHIP_CHAR_SYMBOL="→ "
+SPACESHIP_BATTERY_SHOW=false
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
