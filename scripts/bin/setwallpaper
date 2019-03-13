@@ -21,17 +21,21 @@ function start_loop {
 	echo "$$" > $pid_file
 
 	#Idk why just trapping the signals is enough to trigger a new iteration in the loop below
-	trap "echo 'Caught SIGUSR1'" SIGUSR1
+	trap "set skip" SIGUSR1
 	trap "exit" SIGINT
 	while true; do
 		set
-		sleep 1m &
+		sleep 1h &
 		wait
 	done
 }
 
 function set {
-	find $DIRECTORY/ -type f \( -iname '*.jpg' -o -iname '*.png' \) | shuf -n1 | xargs feh --bg-fill 2> /dev/null
+	#find $DIRECTORY/ -type f \( -iname '*.jpg' -o -iname '*.png' \) | shuf -n1 | xargs feh --bg-fill 2> /dev/null
+	FILES=($DIRECTORY/*)
+	PICT=`printf "%s\n" "${FILES[RANDOM % ${#FILES[@]}]}"`
+
+	wal -i $PICT -a 98
 }
 
 while test $# -gt 0; do

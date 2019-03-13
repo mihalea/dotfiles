@@ -1,12 +1,18 @@
 [colors]
-background = #2b303b 
-foreground = #eee
-linecolor = #14816a
-bordercolor = #2b300b  
-accent = #2b404b
+background = ${xrdb:color0:#222}
+foreground = ${xrdb:color7:#222}
+linecolor = ${xrdb:color1:#222}
+bordercolor = ${xrdb:color2:#222} 
+accent = ${xrdb:color3:#222}
+
+# NOT USED
+foreground-alt = ${xrdb:color7:#222}
+primary = ${xrdb:color1:#222}
+secondary = ${xrdb:color2:#222}
+alert = ${xrdb:color3:#222}
 
 [settings]
-screenchange-reload = true
+;screenchange-reload = true
 ;throttle-output-for = 10
 ;throttle-output = 5
 ;throttle-input-for = 40

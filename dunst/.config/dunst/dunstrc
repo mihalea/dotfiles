@@ -1,5 +1,5 @@
 [global]
-    font = "dina, 12"
+    font = "iosevka ss06, 12"
     allow_markup = yes
     format = "<b>%s</b> %p\n%b"
     sort = yes

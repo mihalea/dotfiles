@@ -1,6 +1,6 @@
 URxvt.internalBorder:   5
 URxvt.scrollBar: false
-URxvt.font: xft:xos4 Terminus:size=12
+URxvt.font: xft:iosevka SS06:size=14
 
 Xft.dpi: 96
 Xft.antialias: true
@@ -66,12 +66,6 @@ URxvt.iso14755: false
 
 rofi.separator: none
 rofi.color-enabled: true
-! --- APPLY XRES BEGIN
-rofi.color-window: #2b303b, #c0c5ce, #2b303b, #c0c5ce, #2b303b
-rofi.color-normal: #2b303b, #c0c5ce, #2b303b, #c0c5ce, #2b303b
-rofi.color-urgent: #2b303b, #c0c5ce, #2b303b, #c0c5ce, #2b303b
-rofi.color-active: #2b303b, #c0c5ce, #2b303b, #c0c5ce, #2b303b
-! --- APPLY XRES END
 rofi.padding:		250
 rofi.separator-style: 	none
-rofi.font:		xos4 Terminus 12
+rofi.font:		iosevka SS06 14

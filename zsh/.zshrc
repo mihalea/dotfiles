@@ -103,12 +103,16 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
 fi
 
 source $ZSH/oh-my-zsh.sh
+cat ~/.cache/wal/sequences
 
 export VISUAL="vim"
 export EDITOR="vim"
 xset -b
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-source /usr/share/nvm/init-nvm.sh
+yac () {aur-talk "$*" | less -R}
+yas () {yay --color=always -Ss "$*" | less -R}
+yap () {yay --color=always -Ss "$*" | peco}
+
+_yay &> /dev/null || true # preload yay completions
+compdef '_pacman_completions_all_packages -S' yac yas yap
+
