@@ -20,7 +20,9 @@ ZSH=/usr/share/oh-my-zsh/
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="mircea"
+ZSH_THEME="spaceship"
+SPACESHIP_CHAR_SYMBOL="→ "
+SPACESHIP_BATTERY_SHOW=false
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -64,7 +66,9 @@ ZSH_CUSTOM=/home/mircea/.oh-my-zsh/custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(sudo wd git ssh-agent aliases clipboard notify autoswitch_virtualenv)
+#
+# SYNTAX HIGHLIGHTING MUST BE LAST
+plugins=(sudo wd git ssh-agent aliases clipboard notify zsh-syntax-highlighting)
 
 # User configuration
 
@@ -103,14 +107,21 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
 fi
 
 source $ZSH/oh-my-zsh.sh
+cat ~/.cache/wal/sequences
 
 export VISUAL="vim"
 export EDITOR="vim"
 xset -b
 
+yac () {aur-talk "$*" | less -R}
+yas () {yay --color=always -Ss "$*" | less -R}
+yap () {yay --color=always -Ss "$*" | peco}
+
+_yay &> /dev/null || true # preload yay completions
+compdef '_pacman_completions_all_packages -S' yac yas yap
+
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
         source /etc/profile.d/vte.sh
 fi
-source ~/.dotfiles/lib/zsh-autoenv/autoenv.zsh
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
