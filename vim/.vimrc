@@ -25,3 +25,5 @@ set splitright
 
 set exrc
 set secure
+
+autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
