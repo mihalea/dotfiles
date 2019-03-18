@@ -42,6 +42,8 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 
 let g:make = 'gmake'
 if exists('make')
