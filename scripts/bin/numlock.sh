@@ -6,7 +6,9 @@ TIMEOUT=5;
 TIMER=0;
 function start {
 	if [ ! -z $pid ]; then
-		echo "Instance already running"	
+		echo "Killing already running instance: $pid"	
+		rm "$pid_file" && kill -9 "$pid"
+		exit 1
 	fi
 
 	reset
