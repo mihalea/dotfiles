@@ -125,5 +125,9 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
 fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export WORKON_HOME=~/.virtualenvs
+source /usr/bin/virtualenvwrapper_lazy.sh
 
 source $HOME/bin/aliases.sh
+
+
