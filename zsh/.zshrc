@@ -125,3 +125,5 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
 fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+
+source $HOME/bin/aliases.sh
