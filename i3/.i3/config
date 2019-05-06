@@ -30,7 +30,8 @@ font pango:xos4 Terminus 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec "st -f 'FuraMono NF:pixelsize=16:antialias=true:autohint=true'"
+# bindsym $mod+Return exec "st -f 'FuraMono NF:pixelsize=16:antialias=true:autohint=true'"
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -78,7 +79,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+e layout tabbed
+# bindsym $mod+e layout tabbed
 bindsym $mod+w layout toggle split
 
 # toggle tiling / floating
@@ -261,6 +262,7 @@ bindsym $mod+p exec $HOME/bin/setwallpaper -f
 bindsym $mod+shift+n exec "$HOME/bin/setwallpaper -n"
 
 bindsym $mod+t exec "$HOME/bin/i3_empty.sh"
+bindsym $mod+e exec pcmanfm
 
 ## WORKSPACE ASSIGNMENTS
 
@@ -306,6 +308,7 @@ for_window [class="Thus"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
+for_window [class="MATLAB R2018b - academic use" title="Figure*"] floating enable
 
 ## Borders
 
@@ -385,10 +388,10 @@ exec --no-startup-id xrdb -load $HOME/.Xresources
 exec --no-startup-id $HOME/bin/monitor.sh
 exec --no-startup-id $HOME/bin/autohotkey.sh
 #exec --no-startup-id mopidy
-#exec --no-startup-id nextcloud
+exec --no-startup-id nextcloud
 #exec --no-startup-id thunar --daemon
 #exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id $HOME/bin/arandr_boost.sh
-#exec --no-startup-id $HOME/bin/kill-nextcloud.sh
+exec --no-startup-id $HOME/bin/kill-nextcloud.sh
