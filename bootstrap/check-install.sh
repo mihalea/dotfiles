@@ -3,7 +3,7 @@
 # Return whether the package provided is installed
 function is_installed {
 	# Yaourt returns two lines of code for each package
-	query=$(yaourt -Qs "^$1\$" | wc -l)
+	query=$(yay -Qs "^$1\$" | wc -l)
 	if [[ "$query" -eq 2 ]]; then
 		# 0 IS TRUE
 		return 0
