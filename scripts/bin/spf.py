@@ -11,7 +11,8 @@ portmap = {
         'deluge': 8112,
         'tautulli': 8181,
         'traefik': 8888,
-        'jackett': 9117
+        'jackett': 9117,
+        'prom': 9090,
         }
 
 if __name__ == "__main__":
